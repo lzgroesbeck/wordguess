@@ -62,11 +62,17 @@ int CurrentGame::play(){
 	char letter;
 	int status = 0;
 
-	while (status == 0){
+	do{
 		letter = promptUser();
 		status = placeLetter(letter);
+	}while (status == 0);
+	if(status==1){
+		cout << "Player wins" << endl;
+	}
+	else{
+		cout << "Player loses" << endl;
 	}
 	// status is checked and an appropriate message displayed
-	return 0;
+	return status;
 }
 
